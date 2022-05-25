@@ -21,6 +21,34 @@ int main(){
 	cout<<"Se acabo";*/
 	
 	//for
-	for(int i = 1; i<=10; i++)
-		cout<<i<<endl;
+	/*for(int i = 1; i<=10; i++)
+		cout<<i<<endl;*/
+		
+	int seleccion;
+	
+	do{
+		cout<<"\n Menu 1, 2 ,3 otra opcion salir \n";
+		cout<<"\n 1.- Opcion 1 \n";
+		cout<<"\n 2.- Opcion 2 \n";
+		cout<<"\n 3.- Opcion 3 \n";
+		cout<<"\n Salir \n";
+		cout<<"\n Ingrese la Opcion \n";
+		
+		cin>>seleccion;
+		
+		switch(seleccion){
+			case 1:
+				cout<<"Opcion 1";
+				break;
+			case 2:
+				cout<<"Opcion 2";
+				break;
+			case 3:
+				cout<<"Opcion 3";
+				break;
+			default:
+				cout<<"Ayos";
+				break;
+		}
+	}while((seleccion > 0) && (seleccion < 4));
 }
