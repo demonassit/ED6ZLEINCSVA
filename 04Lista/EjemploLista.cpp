@@ -55,7 +55,7 @@ struct Nodo{
 	//los valores de la lista
 	int valor;
 	Nodo *siguiente;
-}
+};
 
 
 //definri los metodos 
@@ -109,6 +109,19 @@ void insertarLista(Nodo *&lista, int c){
 	Nodo *aux = lista;
 	Nodo *aux2;
 	//meter los valores de forma ordenada 
+	while((aux!=NULL) && (aux->valor < c)){
+		aux2 = aux;
+		aux = aux->siguiente;
+	}
+	if(inslista==aux){
+		lista = inslista;
+	}else{
+		aux2->siguiente = inslista;
+	}
+	
+	inslista -> siguiente = aux;
+	
+	cout<<"Elemento "<<c<<" insertado"<<endl;
 }
 
 
