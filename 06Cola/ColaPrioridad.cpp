@@ -33,7 +33,7 @@ struct nodo *crearNodo(char x, int pri){
 }
 
 
-void encolar(struct cola &q, int priori){
+void encolar(struct cola &q, char valor, int priori){
 	//necesito mi auxiliar
 	struct nodo *aux = crearNodo(valor, priori);
 	aux->siguiente=NULL;
@@ -92,4 +92,65 @@ void ordenarPrioridad(struct cola &q){
 		}
 		aux1 = aux1->siguiente;
 	}
+}
+
+void insertar(struct cola &q, char c, int pri){
+	
+	//encolar
+	encolar(q, c, pri);
+	
+	//ordeno
+	ordenarPrioridad(q);
+	//nuevo comentario
+}
+
+void menu(){
+	cout<<"\n Ejemplo de colas de prioridad\n";
+	cout<<"1.- Encolar\n";
+	cout<<"2.- Mostrar cola\n";
+	cout<<"3.- Salir\n";
+}
+
+int main(){
+	struct cola q;
+	
+	q.delante = NULL;
+	q.atras = NULL;
+	
+	char c; //caracter del dato
+	int priori; //prioridad
+	int op; //opcion
+	int x; //numero que devuelve para pop
+	
+	do{
+		menu();
+		cin>>op;
+		switch(op){
+			case 1:
+				cout<<"\n Ingrese un caracter: \n";
+				cin>>c;
+				cout<<"\n Ingrese su prioridad: \n";
+				cin>>priori;
+				
+				insertar(q, c, priori);
+				
+				cout<<"\n Caracter: "<<c<<" encolado\n";
+				break;
+			case 2:
+				cout<<"\n Mostrar elementos de la cola: \n";
+				if(q.delante!=NULL){
+					mostrarCola(q);
+				}else{
+					cout<<"\n La cola esta vacia\n";
+				}
+				break;
+			default:
+				cout<<"Ingrese una opcion valida\n";
+				system("pause");
+				exit(0);			
+		}
+		system("pause");
+		system("cls");
+	}while(op!=3);
+	return 0;
 }
